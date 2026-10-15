@@ -2,20 +2,23 @@
 
 # Zombie Empire
 
-Free one-click zombies modpack for **Minecraft Java 1.21.1** (NeoForge): custom boss map, modern guns, original soundtrack, official server or instant LAN.
+Free zombies modpack for **Minecraft Java 1.21.1** (NeoForge 21.1.215): custom boss map, modern guns, original soundtrack, official server or instant LAN.
 
 ## Download
 
-**[⬇ Download the latest release](https://github.com/masterbudzreal/zombie-empire/releases/latest)** – Windows 10/11 64-bit
+**[⬇ Latest release](https://github.com/masterbudzreal/zombie-empire/releases/latest)** – Windows 10/11 64-bit · a legit copy of Minecraft: Java Edition is required
 
-1. Download `Zombie-Empire-v1.0.zip` and run `ZombieEmpire-Setup.exe` (SmartScreen: *More info → Run anyway*).
-2. Click **INSTALL & PLAY**. Mods download from Modrinth, then Java, Minecraft and NeoForge install automatically.
-3. Log in with your Microsoft account (a legit copy of Minecraft: Java Edition is required).
+| Version | File | Install |
+|---|---|---|
+| **Standard** | `Zombie-Empire-v1.1-Standard.zip` | Run `ZombieEmpire-Setup.exe` → **INSTALL & PLAY**. Own launcher, auto-joins the official server, shortcuts and uninstall from Windows Settings. |
+| **Lite** | `Zombie-Empire-v1.1-Lite.zip` | Run `install.bat`. Installs the official NeoForge into `versions\`, the mods into `mods\` and a **Zombie Empire** profile into the launcher you already use. |
+
+Mods are downloaded from Modrinth during install; Minecraft and NeoForge come from their official sources.
 
 Website: https://zombieempire.rf.gd · Server: `zombieempire.serveminecraft.net`
 
 ## Credits
 
-Built on [Prism Launcher](https://prismlauncher.org) (GPL-3.0). Third-party mods are **not** included in this repository or in the download: they are fetched on first launch from [Modrinth](https://modrinth.com). Full list of authors and licenses in `CREDITS.txt` inside the zip.
+Standard is built on [Prism Launcher](https://prismlauncher.org) (GPL-3.0). Third-party mods are **not** included in this repository or in the downloads: they are fetched from [Modrinth](https://modrinth.com). Full list of authors and licenses in `CREDITS.txt` inside each zip.
 
 NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
