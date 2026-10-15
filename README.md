@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://zombieempire.rf.gd"><b>🌐 Website</b></a> ·
   <a href="https://github.com/masterbudzreal/zombie-empire/releases/latest"><b>⬇ Download</b></a> ·
-  <a href="https://www.paypal.com/donate/?business=masterbudz01%40gmail.com&currency_code=EUR&item_name=Zombie+Empire"><b>♥ Donate</b></a>
+  <a href="https://www.patreon.com/ZombieEmpire"><b>♥ Patreon</b></a>
 </p>
 
 # Zombie Empire
@@ -21,7 +21,7 @@ Free zombies modpack for **Minecraft Java 1.21.1** (NeoForge 21.1.215): custom b
 
 Mods are downloaded from Modrinth during install; Minecraft and NeoForge come from their official sources.
 
-Official server: `zombieempire.serveminecraft.net`
+Official server: `zombieempire.serveminecraft.net` · Support the project on [Patreon](https://www.patreon.com/ZombieEmpire) (optional, nothing in the game is locked behind it).
 
 ## Repository
 
