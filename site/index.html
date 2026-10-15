@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zombie Empire – Minecraft Zombies Modpack</title>
+<meta name="description" content="Zombie Empire: a free zombies modpack for Minecraft Java 1.21.1. Custom boss map, modern guns, original soundtrack, automatic LAN. Standard one-click installer or Lite install into your own launcher.">
+<meta name="theme-color" content="#0d100d">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zombie Empire – Minecraft Zombies Modpack">
+<meta property="og:description" content="Free zombies modpack for Minecraft 1.21.1: custom boss map, modern guns, original soundtrack. Standard and Lite versions.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/og.png">
+<meta property="og:url" content="https://zombieempire.rf.gd/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --bg: #0d100d;
+    --bg2: #141914;
+    --card: #182018;
+    --line: #2a352a;
+    --text: #e3e8de;
+    --muted: #9aa695;
+    --green: #6fb35a;
+    --green2: #3f7a33;
+    --red: #c81e1e;
+    --red2: #8f1414;
+    --white: #ffffff;
+    --radius: 6px;
+    --wrap: 1100px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  }
+  img { max-width: 100%; }
+  a { color: var(--green); }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 16px; }
+  .pixel { image-rendering: pixelated; }
+  .mono { font-family: Consolas, "Cascadia Mono", "Courier New", monospace; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(13,16,13,.88); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; gap: 18px; height: 60px; }
+  nav .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 800; letter-spacing: 1px; }
+  nav .brand img { width: 32px; height: 32px; }
+  nav .links { display: flex; gap: 18px; margin-left: auto; }
+  nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav .links a:hover { color: var(--text); }
+  @media (max-width: 720px) { nav .links { display: none; } }
+
+  /* hero */
+  .hero { position: relative; overflow: hidden; text-align: center; padding: 70px 0 80px;
+    background:
+      radial-gradient(ellipse at 50% 35%, rgba(111,179,90,.18), transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(200,30,30,.16), transparent 55%),
+      repeating-linear-gradient(0deg, transparent 0 31px, rgba(255,255,255,.025) 31px 32px),
+      repeating-linear-gradient(90deg, transparent 0 31px, rgba(255,255,255,.025) 31px 32px),
+      var(--bg); }
+  .fog { position: absolute; inset: auto -20% 0 -20%; height: 45%; pointer-events: none;
+    background: radial-gradient(ellipse at 30% 100%, rgba(160,180,150,.12), transparent 60%), radial-gradient(ellipse at 75% 100%, rgba(160,180,150,.10), transparent 60%);
+    animation: drift 18s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translateX(-4%); } to { transform: translateX(4%); } }
+  .hero .face { width: 128px; height: 128px; filter: drop-shadow(0 0 28px rgba(255,255,255,.18)); animation: breathe 4s ease-in-out infinite; }
+  @keyframes breathe { 50% { transform: translateY(-6px); } }
+  .hero .title { display: block; width: min(760px, 92%); margin: 22px auto 6px; }
+  .tagline { font-size: clamp(18px, 2.4vw, 22px); color: var(--text); margin: 0 auto 6px; max-width: 680px; }
+  .sub { color: var(--muted); margin: 0 auto 30px; max-width: 640px; }
+  .cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: var(--radius); font-weight: 800; letter-spacing: .5px; text-decoration: none; border: 0; cursor: pointer; font-size: 16px; transition: transform .12s, box-shadow .12s, background .12s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-red { background: var(--red); color: var(--white); box-shadow: 0 4px 0 var(--red2), 0 0 30px rgba(200,30,30,.35); }
+  .btn-red:hover { background: #dd2525; }
+  .btn-ghost { background: transparent; color: var(--text); border: 2px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--green2); }
+  .btn-green { background: var(--green2); color: var(--white); box-shadow: 0 4px 0 #2a5522; }
+  .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+  .meta { margin-top: 18px; color: var(--muted); font-size: 14px; }
+  .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--muted); background: rgba(0,0,0,.25); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #666; }
+  .dot.on { background: #4ade50; box-shadow: 0 0 10px #4ade50; }
+  .dot.off { background: var(--red); }
+
+  /* sections */
+  section { padding: 70px 0; border-top: 1px solid var(--line); }
+  section.alt { background: var(--bg2); }
+  h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 8px; letter-spacing: .5px; }
+  h2 .accent { color: var(--red); }
+  .lead { color: var(--muted); margin: 0 0 34px; max-width: 700px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 10px 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .ico { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 4px; background: #0f140f; border: 1px solid var(--line); font-size: 22px; }
+
+  .two { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+  @media (max-width: 820px) { .two { grid-template-columns: minmax(0, 1fr); } }
+  .ip { display: flex; gap: 8px; margin: 14px 0 10px; }
+  .ip code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 12px 14px; background: #0b0e0b; border: 1px solid var(--line); border-radius: var(--radius); color: var(--green); font-size: 15px; }
+  .ip button { padding: 0 16px; }
+  .small { color: var(--muted); font-size: 14px; }
+
+  /* versions */
+  .versions { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .version { display: flex; flex-direction: column; gap: 14px; position: relative; }
+  .version.main { border-color: var(--red2); box-shadow: 0 0 0 1px var(--red2), 0 0 40px rgba(200,30,30,.12); }
+  .version .tag { position: absolute; top: -12px; left: 22px; background: var(--red); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 1px; padding: 3px 10px; border-radius: 4px; }
+  .version h3 { font-size: 24px; margin: 6px 0 0; }
+  .version .for { color: var(--text); margin: 0; }
+  .version ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .version li { color: var(--muted); font-size: 15px; padding-left: 26px; position: relative; }
+  .version li::before { content: "✔"; position: absolute; left: 0; color: var(--green); }
+  .version li.no::before { content: "–"; color: var(--muted); }
+  .version .btn { justify-content: center; margin-top: auto; }
+  .version .small { text-align: center; }
+  .steps { counter-reset: s; margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .steps li { counter-increment: s; padding-left: 34px; position: relative; color: var(--muted); font-size: 15px; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 22px; height: 22px; display: grid; place-items: center; background: var(--red); color: #fff; font-weight: 800; font-size: 13px; border-radius: 4px; }
+  .req { margin-top: 26px; text-align: center; }
+
+  .player { display: flex; align-items: center; gap: 16px; }
+  .player button { width: 56px; height: 56px; flex: none; border-radius: 50%; border: 0; background: var(--red); color: #fff; font-size: 22px; cursor: pointer; box-shadow: 0 0 24px rgba(200,30,30,.4); }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 36px; }
+  .bars i { width: 6px; height: 20%; background: var(--green2); transition: height .15s; }
+  .playing .bars i { animation: eq 0.9s ease-in-out infinite; }
+  .playing .bars i:nth-child(2n) { animation-delay: -.3s; } .playing .bars i:nth-child(3n) { animation-delay: -.6s; }
+  @keyframes eq { 0%,100% { height: 20%; } 50% { height: 100%; } }
+
+  .donate { text-align: center; background:
+      radial-gradient(ellipse at 50% 0%, rgba(200,30,30,.18), transparent 60%), var(--bg2); }
+  .donate .lead { margin-left: auto; margin-right: auto; }
+  .perks { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0 0 30px; padding: 0; list-style: none; }
+  .perks li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 14px; background: var(--card); }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--muted); font-size: 13px; text-align: center; }
+  footer a { color: var(--muted); }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(80px); background: var(--green2); color: #fff; padding: 10px 18px; border-radius: var(--radius); font-weight: 700; transition: transform .25s; z-index: 20; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<script>
+  // ====== SETTINGS =========================================================
+  var VERSION = "1.1";
+  var STANDARD_URL = "https://github.com/masterbudzreal/zombie-empire/releases/download/v1.1/Zombie-Empire-v1.1-Standard.zip";
+  var STANDARD_MB = "47";
+  var LITE_URL = "https://github.com/masterbudzreal/zombie-empire/releases/download/v1.1/Zombie-Empire-v1.1-Lite.zip";
+  var LITE_MB = "27";
+  var DONATE_URL = "https://www.paypal.com/donate/?business=masterbudz01%40gmail.com&currency_code=EUR&item_name=Zombie+Empire&no_recurring=0";
+  var SERVER = "zombieempire.serveminecraft.net";
+  // =========================================================================
+</script>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="pixel" src="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/logo.png" alt="">ZOMBIE EMPIRE</a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#server">Server</a>
+      <a href="#donate">Support</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="fog"></div>
+  <div class="wrap">
+    <img class="face pixel" src="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/logo.png" alt="Zombie Empire">
+    <img class="title pixel" src="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/title.png" alt="ZOMBIE EMPIRE">
+    <p class="tagline">Round-based zombies. Modern guns. One click to play.</p>
+    <p class="sub">A free zombies experience for Minecraft Java 1.21.1 with a custom boss map, an original soundtrack and automatic LAN. Install, click, survive.</p>
+    <div class="cta">
+      <a class="btn btn-red" href="#download"><span>⬇</span><span>Download</span></a>
+      <a class="btn btn-ghost" href="#donate"><span>♥</span><span>Support the project</span></a>
+    </div>
+    <div class="meta js-meta"></div>
+    <div class="status"><span class="dot js-dot"></span><span class="js-status">Checking server…</span></div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What's inside <span class="accent">//</span></h2>
+    <p class="lead">Everything is set up for you: no mod folders to fill, no loaders to install by hand, no configs to tweak.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🖱️</div><h3>One-click install</h3><p>Standard: run the setup and press Install &amp; Play. Lite: run install.bat and play from your own launcher.</p></div>
+      <div class="card"><div class="ico">🧟</div><h3>Custom boss map</h3><p>Spawn straight into the hub of bossworld, in adventure mode, ready to fight.</p></div>
+      <div class="card"><div class="ico">🔫</div><h3>Modern weapons</h3><p>Vic's Point Blank, Guns++, Modern Guns, Weapon Master and more, with HUDs to match.</p></div>
+      <div class="card"><div class="ico">🌐</div><h3>Server or instant LAN</h3><p>Play on the official server, or open your world to LAN automatically so friends can jump in.</p></div>
+      <div class="card"><div class="ico">🎵</div><h3>Original soundtrack</h3><p>A haunted music-box menu theme and dark ambient tracks made for Zombie Empire.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>Runs smooth</h3><p>Sodium, Lithium, FerriteCore and Entity Culling built in, with Iris shader support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="soundtrack">
+  <div class="wrap two">
+    <div>
+      <h2>Hear the dead <span class="accent">//</span></h2>
+      <p class="lead">Put your headphones on: this is the main menu theme.</p>
+    </div>
+    <div class="card player" id="player">
+      <button type="button" id="play" aria-label="Play">▶</button>
+      <div>
+        <strong>Zombie Empire – Main Theme</strong>
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <audio id="audio" src="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/theme.ogg" preload="none" loop></audio>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <h2>Choose your version <span class="accent">//</span></h2>
+    <p class="lead">Same map, same mods, same soundtrack. Pick how you want to install it.</p>
+    <div class="versions">
+      <div class="card version main">
+        <span class="tag">RECOMMENDED</span>
+        <h3>Standard</h3>
+        <p class="for">Everything automatic, with its own launcher.</p>
+        <ul>
+          <li>Setup with Install &amp; Play button</li>
+          <li>Joins the official server automatically when it's online</li>
+          <li>Back to the hub on every launch</li>
+          <li>Desktop and Start menu shortcuts, uninstall from Windows Settings</li>
+          <li>Soundtrack, welcome title, automatic LAN</li>
+        </ul>
+        <ol class="steps">
+          <li>Extract the zip and run ZombieEmpire-Setup.exe (SmartScreen: More info → Run anyway).</li>
+          <li>Click INSTALL &amp; PLAY: mods, Java, Minecraft and NeoForge install by themselves.</li>
+          <li>Log in with your Microsoft account and play.</li>
+        </ol>
+        <a class="btn btn-red js-standard" href="#download"><span>⬇</span><span>Download Standard</span></a>
+        <div class="small js-standard-meta"></div>
+      </div>
+      <div class="card version">
+        <h3>Lite</h3>
+        <p class="for">Installs into the Minecraft launcher you already use.</p>
+        <ul>
+          <li>install.bat: official NeoForge into versions, mods into mods</li>
+          <li>Creates the "Zombie Empire" profile in your launcher (4 GB RAM)</li>
+          <li>Your other mods are moved to a backup folder, not deleted</li>
+          <li>Soundtrack, welcome title, automatic LAN</li>
+          <li class="no">Official server: add it from Multiplayer</li>
+        </ul>
+        <ol class="steps">
+          <li>Extract the zip and run install.bat, press Enter to use your .minecraft folder.</li>
+          <li>Wait about a minute: NeoForge, mods, configs and map are installed.</li>
+          <li>Open your launcher, pick the Zombie Empire profile and play.</li>
+        </ol>
+        <a class="btn btn-ghost js-lite" href="#download"><span>⬇</span><span>Download Lite</span></a>
+        <div class="small js-lite-meta"></div>
+      </div>
+    </div>
+    <p class="small req">Windows 10/11 64-bit · a legit copy of Minecraft: Java Edition · 8 GB RAM recommended · <a href="https://github.com/masterbudzreal/zombie-empire/releases">all releases</a></p>
+  </div>
+</section>
+
+<section class="alt" id="server">
+  <div class="wrap two">
+    <div>
+      <h2>Official server <span class="accent">//</span></h2>
+      <p class="lead">Standard connects automatically. On Lite (or any launcher), add it in Multiplayer.</p>
+    </div>
+    <div class="card">
+      <div class="small"><span class="dot js-dot" style="display:inline-block;vertical-align:middle"></span> <span class="js-status">…</span></div>
+      <div class="ip"><code class="mono js-ip"></code><button class="btn btn-green" type="button" id="copy">Copy</button></div>
+      <p class="small">Server offline? Play bossworld in singleplayer: it opens to LAN on port 25565, so friends on your network see it in Multiplayer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="donate" id="donate">
+  <div class="wrap">
+    <h2>Keep the horde alive <span class="accent">♥</span></h2>
+    <p class="lead">Zombie Empire is and will stay free. Donations pay for the server and new maps – completely optional, nothing in the game is locked behind them.</p>
+    <ul class="perks">
+      <li>Your name in the credits</li>
+      <li>Vote on the next map</li>
+      <li>Behind-the-scenes previews</li>
+    </ul>
+    <a class="btn btn-red js-donate" href="#donate" target="_blank" rel="noopener"><span>♥</span><span>Donate with PayPal</span></a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ <span class="accent">//</span></h2>
+    <details><summary>Is it free?</summary><p>Yes, completely. You only need your own copy of Minecraft: Java Edition.</p></details>
+    <details><summary>Standard or Lite?</summary><p>Standard if you want everything automatic, including joining the official server. Lite if you prefer to keep playing from the Minecraft launcher you already use.</p></details>
+    <details><summary>Windows says the file is unrecognized</summary><p>The installer isn't code-signed yet, so SmartScreen warns about it. Click More info → Run anyway. No admin rights are needed.</p></details>
+    <details><summary>install.bat says Java was not found</summary><p>Start Minecraft 1.21.1 once from your launcher (it installs its own Java), or install Java 21 from adoptium.net, then run install.bat again.</p></details>
+    <details><summary>Where do the mods come from?</summary><p>They are downloaded during install straight from Modrinth, so every mod author gets credit for their downloads. The full list with authors and licenses is in CREDITS.txt.</p></details>
+    <details><summary>How do I uninstall it?</summary><p>Standard: Windows Settings → Apps → Zombie Empire → Uninstall. Lite: remove the Zombie Empire profile, versions\neoforge-21.1.215, the mods and saves\bossworld from your .minecraft (see README.txt).</p></details>
+    <details><summary>Mac or Linux?</summary><p>Not yet: both versions are Windows-only for now.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><img class="pixel" src="https://cdn.jsdelivr.net/gh/masterbudzreal/zombie-empire@main/site/assets/logo.png" alt="" width="28" height="28" style="vertical-align:middle"> <strong>Zombie Empire</strong> · Made with brains.</p>
+    <p><a href="https://github.com/masterbudzreal/zombie-empire">GitHub</a> · <a href="https://github.com/masterbudzreal/zombie-empire/releases">Releases</a></p>
+    <p>Standard is built on Prism Launcher (GPL-3.0). Mods by their respective authors, downloaded from Modrinth. Server status by mcsrvstat.us.</p>
+    <p>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  function link(sel, url) {
+    var a = document.querySelector(sel);
+    if (url) a.href = url;
+    else { a.setAttribute("aria-disabled", "true"); a.lastElementChild.textContent = "Coming soon"; }
+  }
+  link(".js-standard", STANDARD_URL);
+  link(".js-lite", LITE_URL);
+  link(".js-donate", DONATE_URL);
+  document.querySelector(".js-meta").textContent = "Version " + VERSION + " · Windows 10/11 · Minecraft 1.21.1 · Standard & Lite";
+  document.querySelector(".js-standard-meta").textContent = "Zip · " + STANDARD_MB + " MB · v" + VERSION;
+  document.querySelector(".js-lite-meta").textContent = "Zip · " + LITE_MB + " MB · v" + VERSION;
+
+  var status = null;
+  function renderStatus() {
+    var text = status === null ? null : status.error ? "Server status unavailable"
+      : status.online ? "Server online" + (status.players != null ? " · " + status.players + " players" : "")
+      : "Server offline – singleplayer + LAN";
+    document.querySelectorAll(".js-status").forEach(function (el) { if (text) el.textContent = text; });
+    document.querySelectorAll(".js-dot").forEach(function (el) {
+      el.className = "dot js-dot" + (status && !status.error ? (status.online ? " on" : " off") : "");
+    });
+  }
+
+  document.querySelector(".js-ip").textContent = SERVER;
+  document.getElementById("copy").addEventListener("click", function () {
+    var done = function () { var t = document.getElementById("toast"); t.textContent = "Address copied!"; t.classList.add("show"); setTimeout(function () { t.classList.remove("show"); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(SERVER).then(done, done); else done();
+  });
+
+  var audio = document.getElementById("audio"), play = document.getElementById("play"), player = document.getElementById("player");
+  play.addEventListener("click", function () {
+    if (audio.paused) { audio.volume = 0.7; audio.play(); play.textContent = "❚❚"; player.classList.add("playing"); }
+    else { audio.pause(); play.textContent = "▶"; player.classList.remove("playing"); }
+  });
+
+  fetch("https://api.mcsrvstat.us/3/" + encodeURIComponent(SERVER))
+    .then(function (r) { return r.json(); })
+    .then(function (j) { status = { online: !!j.online, players: j.players ? j.players.online : null }; renderStatus(); })
+    .catch(function () { status = { error: true }; renderStatus(); });
+})();
+</script>
+</body>
+</html>
