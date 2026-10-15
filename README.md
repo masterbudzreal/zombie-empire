@@ -1,4 +1,10 @@
-<p align="center"><img src="https://zombieempire.rf.gd/assets/og.png" alt="Zombie Empire" width="600"></p>
+<p align="center"><a href="https://zombieempire.rf.gd"><img src="site/assets/og.png" alt="Zombie Empire" width="600"></a></p>
+
+<p align="center">
+  <a href="https://zombieempire.rf.gd"><b>🌐 Website</b></a> ·
+  <a href="https://github.com/masterbudzreal/zombie-empire/releases/latest"><b>⬇ Download</b></a> ·
+  <a href="https://www.paypal.com/donate/?business=masterbudz01%40gmail.com&currency_code=EUR&item_name=Zombie+Empire"><b>♥ Donate</b></a>
+</p>
 
 # Zombie Empire
 
@@ -15,10 +21,26 @@ Free zombies modpack for **Minecraft Java 1.21.1** (NeoForge 21.1.215): custom b
 
 Mods are downloaded from Modrinth during install; Minecraft and NeoForge come from their official sources.
 
-Website: https://zombieempire.rf.gd · Server: `zombieempire.serveminecraft.net`
+Official server: `zombieempire.serveminecraft.net`
+
+## Repository
+
+| Folder | What's inside |
+|---|---|
+| [`site/`](site) | The website live at [zombieempire.rf.gd](https://zombieempire.rf.gd). Pushing changes here deploys it automatically ([workflow](.github/workflows/deploy-site.yml)). |
+| [`launcher/`](launcher) | `ZombieEmpire.exe` (C#): server check, hub/game mode reset, mod download, starts Prism Launcher. |
+| [`installer/`](installer) | `ZombieEmpire-Setup.exe` (C#): Standard installer with the game embedded, shortcuts, uninstaller. |
+| [`lite/`](lite) | `install.bat` / `install.ps1`: Lite installer for any `.minecraft` launcher. |
+| [`mod/`](mod) | The Zombie Empire NeoForge mod: soundtrack, welcome title, automatic LAN. |
+| [`tools/`](tools) | Python scripts: soundtrack composer, icon and website art, NBT helpers, Lite packager. |
+| [`assets/`](assets) | Icon (PNG / ICO). |
+| [`mods.txt`](mods.txt) | Third-party mods: SHA-1, file name and Modrinth download URL. |
+| [`CREDITS.txt`](CREDITS.txt) | Mod authors and licenses. |
+
+How to build everything: [BUILD.md](BUILD.md).
 
 ## Credits
 
-Standard is built on [Prism Launcher](https://prismlauncher.org) (GPL-3.0). Third-party mods are **not** included in this repository or in the downloads: they are fetched from [Modrinth](https://modrinth.com). Full list of authors and licenses in `CREDITS.txt` inside each zip.
+Standard is built on [Prism Launcher](https://prismlauncher.org) (GPL-3.0). Third-party mods are **not** included in this repository or in the downloads: they are fetched from [Modrinth](https://modrinth.com). Full list of authors and licenses in [`CREDITS.txt`](CREDITS.txt).
 
 NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.

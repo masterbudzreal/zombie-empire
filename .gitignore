@@ -1,0 +1,8 @@
+# build outputs
+out/
+*.exe
+*.jar
+*.zip
+payload.zip
+__pycache__/
+*.log

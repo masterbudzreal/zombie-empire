@@ -1,0 +1,13 @@
+{
+  "music.menu": {
+    "sounds": [
+      { "name": "zombieempire:music/menu", "stream": true }
+    ]
+  },
+  "music.game": {
+    "sounds": [
+      { "name": "zombieempire:music/game1", "stream": true },
+      { "name": "zombieempire:music/game2", "stream": true }
+    ]
+  }
+}

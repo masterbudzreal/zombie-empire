@@ -1,0 +1,44 @@
+ZOMBIE EMPIRE - CREDITS
+
+Original content of this pack (map bossworld, launcher ZombieEmpire.exe, Zombie Empire mod,
+soundtrack, icon): Zombie Empire team.
+
+THIRD-PARTY MODS
+These mods are NOT included in this download: ZombieEmpire.exe downloads them on first
+launch directly from Modrinth, the official distribution site. All rights belong to their authors.
+
+- Armor Durability HUD by NSI21 (LicenseRef-All-Rights-Reserved) - https://modrinth.com/mod/armor-durability-hud
+- BoccHUD (LGPL-3.0-only) - https://modrinth.com/mod/bocchud
+- Cloth Config API by shedaniel (LGPL-3.0-only) - https://modrinth.com/mod/cloth-config
+- Custom Guns by Vanderflys (LicenseRef-All-Rights-Reserved) - https://modrinth.com/mod/customguns
+- Drippy Loading Screen by Keksuccino (LicenseRef-DSMSLv3) - https://modrinth.com/mod/drippy-loading-screen
+- Entity Culling by tr7zw (LicenseRef-tr7zw-Protective-License) - https://modrinth.com/mod/entityculling
+- FancyMenu by Keksuccino (LicenseRef-DSMSLv3.1) - https://modrinth.com/mod/fancymenu
+- FerriteCore by malte0811 (MIT) - https://modrinth.com/mod/ferrite-core
+- Gamingbarn's Guns by Gamingbarn (CC-BY-NC-ND-4.0) - https://modrinth.com/mod/gamingbarns-guns
+- Geckolib by Gecko (MIT) - https://modrinth.com/mod/geckolib
+- Guns ++ by ThePatriotsCommandXS (LicenseRef-All-Rights-Reserved) - https://modrinth.com/mod/guns_plus_plus
+- Immersive Armors by Luke100000 (GPL-3.0-only) - https://modrinth.com/mod/immersive-armors
+- Immersive Armor HUD by Txni (LicenseRef-Tonis-MMC-License) - https://modrinth.com/mod/immersive-armor-hud
+- Iris Shaders by coderbot (LGPL-3.0-only) - https://modrinth.com/mod/iris
+- Konkrete by Keksuccino (Apache-2.0) - https://modrinth.com/mod/konkrete
+- Lithium by jellysquid3 (LGPL-3.0-only) - https://modrinth.com/mod/lithium
+- MaFgLib (LGPL-3.0-only) - https://modrinth.com/mod/mafglib
+- Melody by Keksuccino (MIT) - https://modrinth.com/mod/melody
+- Modern Guns by Gamingbarn (CC-BY-NC-ND-4.0) - https://modrinth.com/mod/modern-guns
+- Musket Mod by ewewukek (MIT) - https://modrinth.com/mod/musket-mod
+- OpenHUD by henkelmax (LGPL-3.0-or-later) - https://modrinth.com/mod/openhud
+- Vic's Point Blank by vic4games (LicenseRef-All-Rights-Reserved) - https://modrinth.com/mod/vics-point-blank
+- Scoreboard Tweaks by Microcontrollers (LGPL-3.0-only) - https://modrinth.com/mod/scoreboardtweaks
+- Sodium by IMS (LicenseRef-Polyform-Shield-1.0.0) - https://modrinth.com/mod/sodium
+- TxniLib by Txni (MIT) - https://modrinth.com/mod/txnilib
+- YDM's Weapon Master by YourDailyModder (CC0-1.0) - https://modrinth.com/mod/weaponmaster
+- WorldEdit by me4502 (GPL-3.0-only) - https://modrinth.com/mod/worldedit
+- YetAnotherConfigLib (YACL) by isxander (LGPL-3.0-or-later) - https://modrinth.com/mod/yacl
+
+PRISM LAUNCHER
+Prism Launcher 11.1.1 (portable), GPL-3.0, https://prismlauncher.org
+Source code: https://github.com/PrismLauncher/PrismLauncher/tree/11.1.1
+
+Minecraft is a trademark of Mojang Synergies AB.
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.

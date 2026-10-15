@@ -1,0 +1,24 @@
+# Deploys site/ to InfinityFree (htdocs of zombieempire.rf.gd) on every push to main that changes it.
+# Needs the repository secret FTP_PASSWORD (Settings -> Secrets and variables -> Actions).
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload site/ to InfinityFree
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftpupload.net
+          username: if0_43187847
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./site/
+          server-dir: /htdocs/
