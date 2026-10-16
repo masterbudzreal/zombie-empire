@@ -6,3 +6,5 @@ out/
 payload.zip
 __pycache__/
 *.log
+site/newsletter/config.php
+site/newsletter/data/*.json
